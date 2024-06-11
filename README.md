@@ -4,6 +4,15 @@ A vulnerability has been discovered in the way Zoom initiates
 the installation of an update package which, when paired with
 a command injection vulnerability, can lead to a privilege escalation
 
+This is only really useful if you already have execution, and want to
+take an opportunity to escalate.
+
+Zoom are fine with this as the user needs to enter a password (to update 
+Zoom)
+
+Tested: Injected against 6.0.10 updating to 6.0.11 (at the time of writing,
+the most recent version)
+
 ## Background
 
 Zoom provides an in-app update option (`zoom` -> `check for updates...`) as well
@@ -60,6 +69,6 @@ as there are many, however this is simple with a file lock
 
 1. Local process waits for instance of `Installer`
 2. When open, sends `SIGSTOP`, causing a fake freeze
-3. Verifies the signature is that of Zoom
-4. Starts a new `Installer` instance with a bad `USER` value
-5. Kills the first `Installer` in the background
+4. Verifies the signature is that of Zoom
+5. Starts a new `Installer` instance with a bad `USER` value
+6. Kills the first `Installer` in the background
