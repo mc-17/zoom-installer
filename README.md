@@ -1,8 +1,6 @@
 # Zoom
 
-A vulnerability has been discovered in the way Zoom initiates
-the installation of an update package which, when paired with
-a command injection vulnerability, can lead to a privilege escalation
+lol, lmao even
 
 This is only really useful if you already have execution, and want to
 take an opportunity to escalate.
